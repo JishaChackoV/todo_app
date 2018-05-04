@@ -1,0 +1,36 @@
+{%  extends "base.html" %}
+
+<!--Title for Todo App -->
+{% block title %}
+<title> Todo App!</title>
+{% endblock %}
+
+<!--Update 'content'block -->
+{% block content %}
+<h3>Welcome to Todo App!</h3>
+<br/>
+<p>
+    <!--The form with the input field for the task name to be added-->
+    <form method="post" class="task-form">
+        <font size="4">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" class="btn btn-primary" value="Add!">
+        </font>
+    </form>
+</p>
+<!--Display of the list of the task currently in the Todo list -->
+<div class="list group">
+    {% for task in tasks %}
+        <li class="list-group-item">
+            {{ forms.as_p }}
+        </li>
+        {%for i in obj%}
+            <tr>
+                <td>{{i}}</td>
+            </tr>
+        {% endfor %}
+    {% endfor %}
+</div>
+</p>
+{% endblock %}
