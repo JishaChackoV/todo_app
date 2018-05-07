@@ -1,10 +1,12 @@
-from django.conf.urls import url
 from django.urls import path
-from .views import ToDoCreateView, List_todo
+from django.conf.urls import url
+import To_Do_App
+from To_Do_App import views
 
 app_name = 'To_Do_App'
 urlpatterns = [
-    path('index', ToDoCreateView.as_view(), name='index'),
-   # url(r'^$,todo/delete/(?P<id>\d+)/$',todo_delete.as_view(),name='todo_delete'),
-    path('todo/add/<int:todolist_id>/',List_todo.as_view(), name='add_todo'),
+    path('todo', views.Todo, name="index"),
+    path('todolist', views.TodoList, name="todolist"),
+    path('registration', views.RegisterUserView.as_view(), name="reg"),
+    path('login', views.LoginUserView.as_view(), name="login"),
 ]
